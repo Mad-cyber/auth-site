@@ -1,0 +1,24 @@
+{% extends "authenicate\base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2 class="text-center">Login Page</h2>
+
+<div class="col-md-6 offset-md-3">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="username" class="form-label">User Name</label>
+            <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your username with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password">
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+</div>
+
+
+{% endblock %}
