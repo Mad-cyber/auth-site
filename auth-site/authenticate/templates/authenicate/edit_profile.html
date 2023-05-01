@@ -1,10 +1,10 @@
 {% extends "authenicate\base.html" %}
 {% block content %}
 <h1>Communication Station</h1>
-<h2>This is the registration page</h2>
+<h2>This is the User profile Page</h2>
 
 <div class="col-md-6 offset-md-3"></div>
-<form method="POST" actions="{% url 'register' %}">
+<form method="POST" actions="{% url 'edit_profile' %}">
     {% csrf_token %}
 
     {% if form.errors %}
@@ -12,12 +12,14 @@
         <button class='close' data-dimiss='alert'>
             <small> <sup>x</sup></small>
         </button>
-     <p>Your form has errors. Please try again.</p>
+     <p>Your profile has not been updated. Please try again.</p>
     {% endif %}
 
     {{form.as_p}}
     
-    <input type="submit" value="Register" class="btn btn-secondary">
+    <input type="submit" value="Edit Profile" class="btn btn-secondary">
+    <br>
+    <p><small> <a href ="{% url 'change_password' %}" > Please click here </a> to update your password </small></p>
 </form>
 
 {% endblock %}
